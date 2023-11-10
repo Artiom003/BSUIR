@@ -23,60 +23,68 @@ namespace AirlaneTest
 			Employees w;
 			Cargo_Plane d("Bill");
 		}
-		TEST_METHOD(Check_Functional)
+		TEST_METHOD(Check_Functional_Passenger_Ticket)
 		{
 			Passenger a("Milke");
 			Passenger b("Tod");
 			a.get_info();
-			a.set_info("Mike");
+			a.display_info();
 			a.check_has_ticket();
-			b.display_info();
-			Ticket ticket(25, 2.333);
+			a.set_info("Mike");
+			Ticket ticket(12, 12.3);
+			ticket.book_ticket(&a);
+			ticket.cancel_booking();
+			ticket.book_ticket(&a);
 			ticket.get_price();
-			b.display_info();
+		}
+		TEST_METHOD(Check_Functional_Airport_Flight_Plane_Pilot_Ticket)
+		{
+			Passenger a("Milke");
+			Passenger b("Tod");
+			Ticket ticket(12, 12.3);
+			ticket.book_ticket(&a);
+			ticket.get_price();
 			Airport bel;
+			Flight fly("Maxim->loh");
+			Pass_Plane plane("Holero");
+			Pilot pilot("Mikes");
+			pilot.get_info();
+			pilot.set_info("Mike");
+			fly.add_passenger(&a);
+			fly.add_passenger(&b);
+			fly.remove_passenger(&b);
+			fly.assigh_plane(&plane);
+			fly.assign_pilot(&pilot);
+			fly.unassign_pilot(&pilot);
+			fly.assign_pilot(&pilot);
+			fly.display_info();
+			fly.number_of_passengers();
+			bel.add_flight(&fly);
 			bel.display_info();
-			Ticket t2(23, 899);
-			t2.book_ticket(&b);
-			t2.book_ticket(&a);
-			Flight f("Minsk->Moscow");
-			f.add_passenger(&b);
-
-			Pilot p("Annah");
-			p.set_info("Anna");
+			bel.remove_flight(&fly);
+		}
+		TEST_METHOD(Plane)
+		{
+			Pass_Plane a("A");
+			a.get_model();
+			Cargo_Plane b("B");
+			b.get_model();
+		}
+		TEST_METHOD(Check_Functional_Employees_Security_Guard_Pilot_Ticket)
+		{
+			Passenger a("Milke");
+			Passenger b("Tod");
+			Pilot p("Misha");
 			p.get_info();
-			f.unassign_pilot(&p);
-			f.number_of_passengers();
-			Pass_Plane s("wz-98kj");
-			s.get_model();
-			Cargo_Plane hd("fvygbu");
-			hd.get_model();
-//			bel.add_flight(&f);
-			f.assigh_plane(&s);
-			f.add_passenger(&b);
-//			bel.add_flight(&f);
-			f.assign_pilot(&p);
-			bel.add_flight(&f);
-			
-			f.add_passenger(&a);
-			t2.cancel_booking();
-			bel.add_flight(&f);
-
-			bel.display_info();
-			f.remove_passenger(&b);
-			Pilot l("NIk");
-			Security_Guard v("hvbmnjhn");
-			v.get_id();
-			v.set_info("Roshan");
-			v.check_passenger(&a);
-			Employees w;
-			w.add_employee(&p);
-			w.add_employee(&v);
-			w.add_employee(&l);
-			w.display_number_of_employees();
-			bel.add_flight(&f);
-			f.display_info();
-			f.assigh_plane(&s);
+			Security_Guard s("Dan");
+			s.get_id();
+			s.get_info();
+			s.set_info("Dana");
+			s.check_passenger(&a);
+			Employees e;
+			e.add_employee(&p);
+			e.add_employee(&s);
+			e.display_number_of_employees();
 		}
 	};
 }
