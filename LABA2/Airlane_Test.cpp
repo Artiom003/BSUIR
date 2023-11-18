@@ -39,29 +39,31 @@ namespace AirlaneTest
 		}
 		TEST_METHOD(Check_Functional_Airport_Flight_Plane_Pilot_Ticket)
 		{
-			Passenger a("Milke");
-			Passenger b("Tod");
-			Ticket ticket(12, 12.3);
-			ticket.book_ticket(&a);
-			ticket.get_price();
-			Airport bel;
-			Flight fly("Maxim->loh");
-			Pass_Plane plane("Holero");
-			Pilot pilot("Mikes");
-			pilot.get_info();
-			pilot.set_info("Mike");
-			fly.add_passenger(&a);
-			fly.add_passenger(&b);
-			fly.remove_passenger(&b);
-			fly.assigh_plane(&plane);
-			fly.assign_pilot(&pilot);
-			fly.unassign_pilot(&pilot);
-			fly.assign_pilot(&pilot);
-			fly.display_info();
-			fly.number_of_passengers();
-			bel.add_flight(&fly);
-			bel.display_info();
-			bel.remove_flight(&fly);
+		Passenger a("Milke");
+		Passenger b("Tod");
+		Ticket ticket(12, 12.3);
+		Ticket ticket2(13, 42.3);
+		ticket.book_ticket(&a);
+		ticket2.book_ticket(&b);
+		ticket.get_price();
+		Airport bel;
+		Flight fly("Maxim->loh");
+		Pass_Plane plane("Holero");
+		Pilot pilot("Mikes");
+		pilot.get_info();
+		pilot.set_info("Mike");
+		fly.add_passenger(&a);
+		fly.add_passenger(&b);
+		fly.remove_passenger(&b);
+		fly.assigh_plane(&plane);
+		fly.assign_pilot(&pilot);
+		fly.unassign_pilot(&pilot);
+		fly.assign_pilot(&pilot);
+		fly.display_info();
+		fly.number_of_passengers();
+		bel.add_flight(&fly);
+		bel.display_info();
+		bel.remove_flight(&fly);
 		}
 		TEST_METHOD(Plane)
 		{
