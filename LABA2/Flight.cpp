@@ -8,7 +8,7 @@ namespace Airlane {
             passengers.push_back(passenger);
         }
         else {
-  //          throw runtime_error("Can't add passenger because without ticket");
+            throw runtime_error("Can't add passenger because without ticket");
         }
     }
     void Flight::remove_passenger(Passenger* passenger) {
