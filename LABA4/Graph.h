@@ -164,9 +164,7 @@ namespace Modified_Wirth_structure {
         int get_number_of_edges() {
             int count = 0;
             for (int i = 0; i < nodes.size(); i++) {
-                for (int j = 0; j < nodes[i].pairs.size(); j++) {
-                    count++;
-                }
+                count += nodes[i].pairs.size();
             }
             return count;
         }
